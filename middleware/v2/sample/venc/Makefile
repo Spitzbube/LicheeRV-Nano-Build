@@ -64,7 +64,7 @@ EXTRA_LDFLAGS_WITH_ASAN += -fno-omit-frame-pointer -fsanitize-recover=address -l
 
 .PHONY : clean all
 
-all : $(TARGET_VENC) $(TARGET_VCODEC) $(TARGET_VENC_WITH_ASAN) $(TARGET_VCODEC_WITH_ASAN)
+all : #$(TARGET_VENC) $(TARGET_VCODEC) $(TARGET_VENC_WITH_ASAN) $(TARGET_VCODEC_WITH_ASAN)
 
 $(COMMON_DIR)/%.o: $(COMMON_DIR)/%.c
 	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<

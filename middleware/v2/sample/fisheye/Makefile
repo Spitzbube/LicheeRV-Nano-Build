@@ -35,7 +35,7 @@ EXTRA_CFLAGS = $(INCS) $(DEFS)
 EXTRA_LDFLAGS = $(LIBS) -lpthread -lm -lini
 
 .PHONY : clean all
-all: $(TARGET)
+all: #$(TARGET)
 
 $(COMMON_DIR)/%.o: $(COMMON_DIR)/%.c
 	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<

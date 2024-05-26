@@ -68,7 +68,7 @@ EXTRA_LDFLAGS += -L$(TPU_PATH)/lib -lcviruntime-static -lcvimath-static -lcviker
 endif
 
 .PHONY : clean all
-all: $(TARGET)
+all: #$(TARGET)
 
 $(COMMON_DIR)/%.o: $(COMMON_DIR)/%.c
 	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<

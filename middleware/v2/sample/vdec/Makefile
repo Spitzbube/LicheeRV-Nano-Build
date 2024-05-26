@@ -51,7 +51,7 @@ EXTRA_LDFLAGS_WITH_ASAN = -Wl,-Bdynamic $(LIBS) -lini -lm -lpthread
 EXTRA_LDFLAGS_WITH_ASAN +=  -fno-omit-frame-pointer -fsanitize-recover=address -lasan
 
 .PHONY : clean all
-all: $(TARGET) $(TARGET_WITH_ASAN)
+#all: $(TARGET) $(TARGET_WITH_ASAN)
 
 $(COMMON_DIR)/%.o: $(COMMON_DIR)/%.c
 	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<

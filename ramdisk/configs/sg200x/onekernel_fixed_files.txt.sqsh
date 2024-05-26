@@ -8,11 +8,11 @@ dir /dev/pts 755 0 0
 nod /dev/console 644 0 0 c 5 1
 
 file /init ../target/init 775 0 0
-file /busybox ../target/busybox 775 0 0
-file /e2fsck ../target/e2fsck 775 0 0
-file /resize2fs ../target/resize2fs 775 0 0
-file /parted ../target/parted 775 0 0
-file /libc.so ../target/libc.so 775 0 0
+file /busybox ../target/bin/busybox 775 0 0
+#file /e2fsck ../target/e2fsck 775 0 0
+#file /resize2fs ../target/resize2fs 775 0 0
+#file /parted ../target/parted 775 0 0
+file /libc.so ../target/usr/lib64vxthead/lp64dv/libc.so 775 0 0
 
 dir /proc 755 0 0
 dir /sys 755 0 0

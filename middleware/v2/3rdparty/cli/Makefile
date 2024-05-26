@@ -10,8 +10,8 @@ PREBUILT_LIB = lib_$(SDK_VER)
 all :
 	@rm -rf lib
 	@ln -s $(PREBUILT_LIB) lib
-	@cp -a include/* $(MW_INC)
-	@cp -a lib/* $(MW_3RD_LIB)
+#	@cp -a include/* $(MW_INC)
+#	@cp -a lib/* $(MW_3RD_LIB)
 
 clean :
 	@rm -rf lib

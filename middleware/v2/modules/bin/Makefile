@@ -34,7 +34,7 @@ EXTRA_CFLAGS += -DRPC_MULTI_PROCESS
 endif
 
 .PHONY : clean all prepare_3rdparty_module
-all : prepare_3rdparty_module $(TARGET_A) $(TARGET_SO)
+#all : prepare_3rdparty_module $(TARGET_A) $(TARGET_SO)
 
 OSS_BUILD_SRCIPT = $(TOP_DIR)/oss/run_build.sh
 OSS_TARBALL_PATH = $(OUTPUT_DIR)/tpu_$(SDK_VER)/third_party
@@ -45,40 +45,40 @@ OSS_MODULE_LIB_CVI_MINIZ_CHECK_PATH = $(OSS_MODULE_LIB_PATH)/libcvi_miniz*
 
 prepare_3rdparty_module:
 # cvi_json-c
-ifeq "$(wildcard $(OSS_MODULE_LIB_CVI_JSONC_CHECK_PATH))" ""
-ifeq "$(wildcard $(OSS_TARBALL_CVI_JSONC_PATH))" ""
-	$(error libcvi_json-c source tarball not exist, please run build_3rd_party first!!)
-endif
-	@mkdir -p $(OSS_MODULE_INSTALL_PATH)
-	@$(OSS_BUILD_SRCIPT) -n cvi-json-c -e -t "$(OSS_TARBALL_PATH)" -i "$(OSS_MODULE_INSTALL_PATH)"
-endif
+#ifeq "$(wildcard $(OSS_MODULE_LIB_CVI_JSONC_CHECK_PATH))" ""
+#ifeq "$(wildcard $(OSS_TARBALL_CVI_JSONC_PATH))" ""
+#	$(error libcvi_json-c source tarball not exist, please run build_3rd_party first!!)
+#endif
+#	@mkdir -p $(OSS_MODULE_INSTALL_PATH)
+#	@$(OSS_BUILD_SRCIPT) -n cvi-json-c -e -t "$(OSS_TARBALL_PATH)" -i "$(OSS_MODULE_INSTALL_PATH)"
+#endif
 
 # cvi_miniz
-ifeq "$(wildcard $(OSS_MODULE_LIB_CVI_MINIZ_CHECK_PATH))" ""
-ifeq "$(wildcard $(OSS_TARBALL_CVI_MINIZ_PATH))" ""
-	$(error libcvi_miniz source tarball not exist, please run build_3rd_party first!!)
-endif
-	@mkdir -p $(OSS_MODULE_INSTALL_PATH)
-	@$(OSS_BUILD_SRCIPT) -n cvi-miniz -e -t "$(OSS_TARBALL_PATH)" -i "$(OSS_MODULE_INSTALL_PATH)"
-endif
+#ifeq "$(wildcard $(OSS_MODULE_LIB_CVI_MINIZ_CHECK_PATH))" ""
+#ifeq "$(wildcard $(OSS_TARBALL_CVI_MINIZ_PATH))" ""
+#	$(error libcvi_miniz source tarball not exist, please run build_3rd_party first!!)
+#endif
+#	@mkdir -p $(OSS_MODULE_INSTALL_PATH)
+#	@$(OSS_BUILD_SRCIPT) -n cvi-miniz -e -t "$(OSS_TARBALL_PATH)" -i "$(OSS_MODULE_INSTALL_PATH)"
+#endif
 
-$(SDIR)/%.o: $(SDIR)/%.c
-	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<
-	@echo [$(notdir $(CC))] $(notdir $@)
+#$(SDIR)/%.o: $(SDIR)/%.c
+#	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<
+#	@echo [$(notdir $(CC))] $(notdir $@)
 
-$(SDIR)/%.o: $(SDIR)/%.S
-	$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<
-	@echo [$(notdir $(CC))] $(notdir $@)
+#$(SDIR)/%.o: $(SDIR)/%.S
+#	$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<
+#	@echo [$(notdir $(CC))] $(notdir $@)
 
-$(TARGET_A): $(OBJS) $(OBJS_ASM)
-	@$(AR) $(ARFLAGS) $(TARGET_A) $(OBJS) $(OBJS_ASM)
-	@echo -e $(YELLOW)[LINK]$(END)[$(notdir $(AR))] $(notdir $(TARGET_A))
-	@echo "$$AR_MRI" | $(AR) -M
+#$(TARGET_A): $(OBJS) $(OBJS_ASM)
+#	@$(AR) $(ARFLAGS) $(TARGET_A) $(OBJS) $(OBJS_ASM)
+#	@echo -e $(YELLOW)[LINK]$(END)[$(notdir $(AR))] $(notdir $(TARGET_A))
+#	@echo "$$AR_MRI" | $(AR) -M
 
-$(TARGET_SO): $(OBJS) $(OBJS_ASM)
-	@$(LD) $(LDFLAGS) $(EXTRA_LDFLAGS) -o $(TARGET_SO) --start-group $(OBJS) $(OBJS_ASM) $(LIBS) --end-group
-	@echo -e $(GREEN)[LINK]$(END)[$(notdir $(LD))] $(notdir $(TARGET_SO))
-	@$(STRIP) $(TARGET_SO)
+#$(TARGET_SO): $(OBJS) $(OBJS_ASM)
+#	@$(LD) $(LDFLAGS) $(EXTRA_LDFLAGS) -o $(TARGET_SO) --start-group $(OBJS) $(OBJS_ASM) $(LIBS) --end-group
+#	@echo -e $(GREEN)[LINK]$(END)[$(notdir $(LD))] $(notdir $(TARGET_SO))
+#	@$(STRIP) $(TARGET_SO)
 
 clean:
 	@rm -f $(OBJS) $(OBJS_ASM) $(DEPS) $(TARGET_A) $(TARGET_SO)

@@ -171,12 +171,12 @@ ELFFLAGS = $(filter-out -static, $(AUDIO_ELFFLAGS))
 
 ifeq ($(MULTI_PROCESS_SUPPORT_AUDIO), yes)
 ifeq ($(CONFIG_ENABLE_SDK_ASAN), y)
-all : sample_audio check_and_leave sample_audio_asan
+all : #sample_audio check_and_leave sample_audio_asan
 else
-all : sample_audio check_and_leave sample_multi_process
+all : #sample_audio check_and_leave sample_multi_process
 endif
 else
-all : sample_audio check_and_leave
+all : #sample_audio check_and_leave
 endif
 
 

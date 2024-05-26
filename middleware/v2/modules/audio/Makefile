@@ -4,7 +4,7 @@
 include audio.mk
 
 all:
-	cp lib/$(SDK_VER)/lib* $(MW_LIB)
+#	cp lib/$(SDK_VER)/lib* $(MW_LIB)
 
 clean:
 	rm $(MW_LIB)/libaac*

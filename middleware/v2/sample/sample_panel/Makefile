@@ -30,7 +30,7 @@ EXTRA_LDFLAGS = $(LIBS) -lm -lpthread -latomic
 EXTRA_LDFLAGS += -lcvi_bin -lcvi_bin_isp $(ISP_LIB)
 
 .PHONY : clean all
-all: $(TARGET)
+all: #$(TARGET)
 
 $(SDIR)/%.o: $(SDIR)/%.c
 	@$(CC) $(DEPFLAGS) $(CFLAGS) $(EXTRA_CFLAGS) -o $@ -c $<
